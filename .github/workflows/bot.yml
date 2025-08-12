@@ -1,0 +1,22 @@
+name: Test MAX Bot
+
+on:
+  workflow_dispatch:  # 手動執行
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.x'
+
+      - name: Install dependencies
+        run: pip install requests
+
+      - name: Run bot
+        run: python money.py
